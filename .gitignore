@@ -5,3 +5,7 @@ dist
 
 #prisma
 prisma/migrations
+
+
+#logs
+error.log
