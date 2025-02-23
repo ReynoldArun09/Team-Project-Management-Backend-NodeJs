@@ -7,12 +7,14 @@ interface ApiResponse<T> {
   success?: boolean;
   message?: string;
   data?: T;
+  [key: string]: any;
 }
 
-export const SendApiResponse = <T>({ res, statusCode, success = true, message, data }: ApiResponse<T>) => {
+export const SendApiResponse = <T>({ res, statusCode, success = true, message, data, ...rest }: ApiResponse<T>) => {
   return res.status(statusCode).json({
     success,
     message,
     data,
+    ...rest,
   });
 };
